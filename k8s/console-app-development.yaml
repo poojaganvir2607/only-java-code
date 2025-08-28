@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: console-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: console-app
+  template:
+    metadata:
+      labels:
+        app: console-app
+    spec:
+      containers:
+      - name: console-app
+        image: 747409585857.dkr.ecr.us-east-1.amazonaws.com/lcd-repo:5.0
+        ports:
+        - containerPort: 8081
+        envFrom:
+        - configMapRef:
+            name: console-app-config
+      imagePullSecrets:
+      - name: ecr-secret

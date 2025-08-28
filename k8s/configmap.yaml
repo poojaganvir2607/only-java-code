@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: console-app-config
+data:
+  USER_NAME: "Amit"
+  USER_AGE: "28"
+  FAV_LANG: "Java"
